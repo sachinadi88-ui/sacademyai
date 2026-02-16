@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>AI Studio</h1>
+
+  <input type="text" id="prompt" placeholder="Enter your prompt...">
+
+  <div class="buttons">
+    <button onclick="generateText()">Text</button>
+    <button onclick="generateImage()">Image</button>
+    <button onclick="generateVideo()">Video</button>
+  </div>
+
+  <div id="loader" class="loader hidden"></div>
+
+  <div id="result"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
