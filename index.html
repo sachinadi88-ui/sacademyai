@@ -6,30 +6,21 @@
 </head>
 <body>
 
-<div class="container">
+<div class="app">
 
-  <h1>AI Studio</h1>
-  <span style="font-family: 'Orbitron', 'Arial', sans-serif;font-size: 14px;letter-spacing: 2px;color: #00f7ff;text-shadow: 0 0 5px rgba(0,247,255,0.6);">By Sachin Adi<br></span>
-
-  <input type="text" id="prompt" placeholder="Enter your prompt...">
-
-  <div class="buttons">
-    <button onclick="generateText()">Text</button>
-    <button onclick="generateImage()">Image</button>
+  <div class="header">
+    AI Studio
   </div>
 
-  <div id="loader" class="loader hidden"></div>
+  <div id="chat" class="chat"></div>
 
-  <div id="result"></div>
+  <div class="inputBox">
+    <input id="prompt" placeholder="Ask anything...">
+    <button onclick="sendPrompt()">Send</button>
+  </div>
 
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
