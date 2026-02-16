@@ -65,26 +65,32 @@ async function generateText(prompt) {
 
 async function generateImage(prompt) {
 
-  const botDiv = createBotMessage("Generating image...");
+  const botDiv = createBotMessage("🎨 Generating image...");
 
-  const res = await fetch("/api/image", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ prompt })
-  });
+  try {
 
-  const data = await res.json();
+    // Free AI image API
+    const url =
+      "https://image.pollinations.ai/prompt/" +
+      encodeURIComponent(prompt);
 
-  const url = data?.data?.[0]?.url || data?.url;
+    botDiv.innerHTML = `
+      <img src="${url}" alt="AI Image">
+      <br>
+      <a href="${url}" download>
+        <button>Download</button>
+      </a>
+    `;
 
-  botDiv.innerHTML = `
-    <img src="${url}">
-    <br>
-    <a href="${url}" download>Download</a>
-  `;
+    saveHistory();
 
-  saveHistory();
+  } catch (err) {
+
+    botDiv.innerHTML = "❌ Error generating image";
+
+  }
 }
+
 
 async function generateVideo(prompt) {
 
@@ -146,3 +152,4 @@ function loadHistory() {
   const history = localStorage.getItem("chatHistory");
   if (history) chat.innerHTML = history;
 }
+
